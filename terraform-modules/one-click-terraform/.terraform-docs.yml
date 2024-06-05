@@ -1,0 +1,11 @@
+formatter: "markdown"
+
+output:
+  file: "README.md"
+
+settings:
+  anchor: false
+  lockfile: false
+
+recursive:
+    enabled: true
