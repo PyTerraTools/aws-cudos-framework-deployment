@@ -2,10 +2,9 @@
 module "cid_dashboards" {
   source = "github.com/aws-samples/aws-cudos-framework-deployment//terraform-modules/cid-dashboards?ref=0.3.4"
 
-  stack_name        = var.stack_name
-  template_bucket   = aws_s3_bucket.template_bucket.id
-  stack_iam_role    = var.stack_iam_role
-  stack_policy_body = var.stack_policy_body
+  stack_name      = var.stack_name
+  template_bucket = aws_s3_bucket.template_bucket.id
+  stack_iam_role  = var.stack_iam_role == null ? data.aws_iam_policy_document.stack_iam_policy_body.json : var.stack_iam_role
   stack_parameters = {
     "CURBucketPath"                        = var.cur_bucket_path
     "DataBuketsKmsKeyArns"                 = var.data_buckets_kms_key_arns
@@ -34,6 +33,5 @@ module "cid_dashboards" {
 }
 
 resource "time_sleep" "wait" {
-  depends_on      = [aws_iam_role.cid_stack_role]
   create_duration = var.time_sleep_create_duration
 }
