@@ -8,6 +8,7 @@ data "aws_iam_policy_document" "s3_get_object" {
       "athena:*",
       "s3:*",
       "quicksight:*",
+      "logs:PutLogEvents",
     ]
     resources = ["*"]
   }
