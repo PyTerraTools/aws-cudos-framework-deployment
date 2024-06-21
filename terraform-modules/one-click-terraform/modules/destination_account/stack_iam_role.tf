@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "stack_iam_role" {
+data "aws_iam_policy_document" "stack_policy_body" {
   statement {
     actions = [
       "logs:PutLogEvents"
