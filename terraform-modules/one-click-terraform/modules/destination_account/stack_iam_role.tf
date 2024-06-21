@@ -35,11 +35,9 @@ data "aws_iam_policy_document" "stack_policy_body" {
   }
 }
 
-
-data "aws_iam_role" "CidCURCrawlerRole" {
-  name = "*CidCloudCidCURCrawlerRole*"
-
-  depends_on = [module.cid_dashboards, module.cur_destination]
+resource "aws_iam_role" "stack_iam_role" {
+  name               = "CidCloudFormationStackRole"
+  assume_role_policy = data.aws_iam_policy_document.assume_role_policy.json
 }
 
 resource "aws_iam_policy" "stack_iam_policy" {
@@ -48,8 +46,6 @@ resource "aws_iam_policy" "stack_iam_policy" {
 }
 
 resource "aws_iam_role_policy_attachment" "stack_iam_policy_attachment" {
-  role       = data.aws_iam_role.CidCURCrawlerRole.name
+  role       = aws_iam_role.stack_iam_role.name
   policy_arn = aws_iam_policy.stack_iam_policy.arn
-
-  depends_on = [module.cid_dashboards, module.cur_destination]
 }

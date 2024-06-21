@@ -4,7 +4,7 @@ module "cid_dashboards" {
 
   stack_name        = var.stack_name
   template_bucket   = aws_s3_bucket.template_bucket.id
-  stack_iam_role    = var.stack_iam_role
+  stack_iam_role    = var.stack_iam_role == null ? aws_iam_role.stack_iam_role.arn : var.stack_iam_role
   stack_policy_body = var.stack_policy_body
   stack_parameters = {
     "CURBucketPath"                        = var.cur_bucket_path
