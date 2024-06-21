@@ -1,6 +1,6 @@
 # https://github.com/aws-samples/aws-cudos-framework-deployment/tree/main/terraform-modules/cid-dashboards
 module "cid_dashboards" {
-  source = "github.com/aws-samples/aws-cudos-framework-deployment//terraform-modules/cid-dashboards?ref=0.3.4"
+  source = "github.com/aws-samples/aws-cudos-framework-deployment//terraform-modules/cid-dashboards"
 
   stack_name        = var.stack_name
   template_bucket   = aws_s3_bucket.template_bucket.id
