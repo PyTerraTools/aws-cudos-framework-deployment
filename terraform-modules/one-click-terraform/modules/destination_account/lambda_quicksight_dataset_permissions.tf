@@ -52,17 +52,7 @@ resource "aws_cloudwatch_event_rule" "add_quicksight_dataset_permissions" {
   name        = var.add_quicksight_dataset_permissions_rule_name
   description = "Trigger the Lambda function to update QuickSight data set permissions."
 
-  event_pattern = jsonencode({
-    source = ["aws.quicksight"],
-    detail = {
-      eventName   = ["CreateUser", "CreateDataSet"],
-      eventSource = ["quicksight.amazonaws.com"]
-    }
-  })
-
-  depends_on = [
-    aws_lambda_function.add_quicksight_dataset_permissions
-  ]
+  schedule_expression = var.add_quicksight_dataset_permissions_lambda__schedule_expression
 }
 
 resource "aws_cloudwatch_event_target" "add_quicksight_dataset_permissions" {
