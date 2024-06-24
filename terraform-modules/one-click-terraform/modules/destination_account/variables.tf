@@ -234,12 +234,6 @@ variable "quicksight_lambda_role_policy_sid" {
   default     = "CidQuickSightDataSetPermissions"
 }
 
-variable "add_quicksight_dataset_permissions_lambda__schedule_expression" {
-  description = "The schedule expression for the Lambda function"
-  type        = string
-  default     = "cron(0 6-18 ? * MON-FRI *)"
-}
-
 variable "quicksight_authentication_method" {
   description = "Method to authenticate your Amazon QuickSight account"
   type        = string
