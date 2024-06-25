@@ -1,4 +1,3 @@
-# https://github.com/aws-samples/aws-cudos-framework-deployment/tree/main/terraform-modules/cid-dashboards
 module "cid_dashboards" {
   source = "github.com/aws-samples/aws-cudos-framework-deployment//terraform-modules/cid-dashboards"
 

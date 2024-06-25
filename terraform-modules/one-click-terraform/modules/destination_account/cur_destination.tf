@@ -1,4 +1,3 @@
-# https://github.com/aws-samples/aws-cudos-framework-deployment/tree/main/terraform-modules/cur-setup-destination'
 module "cur_destination" {
   count = var.create_cur ? 1 : 0
 
@@ -8,7 +7,6 @@ module "cur_destination" {
   # Set to true to create an additional CUR in the aggregation account
   create_cur = var.create_cur
 
-  # Provider alias for us-east-1 must be passed explicitly (required for CUR setup)
   providers = {
     aws.useast1 = aws.useast1
   }

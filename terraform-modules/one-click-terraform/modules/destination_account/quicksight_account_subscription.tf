@@ -1,6 +1,4 @@
-# See https://github.com/aws-samples/aws-cudos-framework-deployment/blob/main/README.md#before-you-start
 resource "aws_quicksight_account_subscription" "cid_dashboards" {
-  # This must be unique across all QuickSight accounts.
   account_name          = "Cloud-Intelligence-Dashboards-${data.aws_caller_identity.current.account_id}"
   authentication_method = var.quicksight_authentication_method
   edition               = var.quicksight_account_edition
@@ -19,7 +17,7 @@ resource "aws_quicksight_account_subscription" "cid_dashboards" {
 
 resource "time_sleep" "wait_60" {
   depends_on      = [aws_quicksight_account_subscription.cid_dashboards]
-  create_duration = "60s"
+  create_duration = var.quicksight_account_creation_wait_duration
 }
 
 resource "aws_quicksight_user" "cid_dashboards" {

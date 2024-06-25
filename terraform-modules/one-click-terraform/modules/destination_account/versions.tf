@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "< 6.0"
+      version = ">= 4.0"
       configuration_aliases = [
         aws.useast1,
         aws.src,
@@ -22,8 +22,3 @@ terraform {
   }
   required_version = ">= 1.2"
 }
-
-# provider "aws" {
-#   region = "us-east-1"
-#   alias  = "useast1"
-# }

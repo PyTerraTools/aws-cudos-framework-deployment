@@ -9,6 +9,18 @@ variable "create_cur" {
   default     = false
 }
 
+variable "cid_template_bucket_prefix" {
+  description = "The prefix for the CloudFormation template bucket."
+  type        = string
+  default     = "cid-cf-template-"
+}
+
+variable "cid_template_bucket_force_destroy" {
+  description = "A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error."
+  type        = bool
+  default     = true
+}
+
 variable "lambda_function_handler" {
   description = "The function entrypoint in your code."
   type        = string
@@ -324,6 +336,12 @@ variable "quicksight_account_contact_number" {
     condition     = var.quicksight_account_contact_number == null || can(regex("^[0-9]{1,10}$", var.quicksight_account_contact_number))
     error_message = "The contact number must be a valid phone number."
   }
+}
+
+variable "quicksight_account_creation_wait_duration" {
+  description = "The value of the wait duration before creating the QuickSight account"
+  type        = string
+  default     = "60s"
 }
 
 variable "quicksight_user_identity_type" {
