@@ -1,8 +1,3 @@
-# variable "source_account_ids" {
-#   description = "List of all source accounts that will replicate CUR Data. Ex:  [12345678912,98745612312,...] (fill only on Destination Account)"
-#   type        = list(string)
-# }
-
 variable "create_cur" {
   description = "Whether to create a local CUR in the destination account or not. Set this to true if the destination account is NOT covered in the CUR of the source accounts. Setting this to true will create a new CUR in the destination/aggregation account."
   type        = bool
