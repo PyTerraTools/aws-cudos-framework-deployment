@@ -24,5 +24,6 @@ output "cid_dashboards_stack_outputs" {
 }
 
 output "disable_quicksight_account_termination_protection_result" {
-  value = length(aws_lambda_invocation.disable_quicksight_account_termination_protection) > 0 ? jsondecode(aws_lambda_invocation.disable_quicksight_account_termination_protection[0].result) : null
+  description = "Result of the Lambda function to disable QuickSight account termination protection"
+  value       = length(aws_lambda_invocation.disable_quicksight_account_termination_protection) > 0 ? jsondecode(aws_lambda_invocation.disable_quicksight_account_termination_protection[0].result) : null
 }

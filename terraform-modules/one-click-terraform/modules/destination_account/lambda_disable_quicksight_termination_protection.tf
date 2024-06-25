@@ -31,7 +31,7 @@ resource "aws_lambda_invocation" "disable_quicksight_account_termination_protect
 
   function_name = aws_lambda_function.disable_quicksight_account_termination_protection[0].function_name
   input = jsonencode({
-    "QUICKSIGHT_ACCOUNT_ID" = "${data.aws_caller_identity.current.account_id}"
+    "QUICKSIGHT_ACCOUNT_ID" = data.aws_caller_identity.current.account_id
   })
 
   triggers = {

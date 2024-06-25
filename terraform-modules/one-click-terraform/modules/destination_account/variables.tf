@@ -44,24 +44,6 @@ variable "quicksight_notifications_email" {
   type        = string
 }
 
-variable "cur_name_suffix" {
-  description = "Suffix to append to the CUR name. Default is 'cur'"
-  type        = string
-  default     = null
-}
-
-variable "resource_prefix" {
-  description = "Prefix used for all named resources, including the S3 Bucket"
-  type        = string
-  default     = null
-}
-
-variable "test_suffix" {
-  description = "A random suffix to append to the resource names for testing purposes"
-  type        = string
-  default     = ""
-}
-
 variable "stack_iam_role" {
   description = "The IAM role that will be used by the Cloud Intelligence Dashboards stack"
   type        = string

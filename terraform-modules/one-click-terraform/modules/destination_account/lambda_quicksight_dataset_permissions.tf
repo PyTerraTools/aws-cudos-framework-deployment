@@ -31,7 +31,7 @@ resource "aws_lambda_invocation" "add_quicksight_dataset_permissions" {
 
   function_name = aws_lambda_function.add_quicksight_dataset_permissions[0].function_name
   input = jsonencode({
-    "QUICKSIGHT_ACCOUNT_ID" = "${data.aws_caller_identity.current.account_id}"
+    "QUICKSIGHT_ACCOUNT_ID" = data.aws_caller_identity.current.account_id
   })
 
   triggers = {
